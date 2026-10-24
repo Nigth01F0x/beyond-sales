@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="100%" height="100%">
+  <defs>
+    <linearGradient id="heroBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120" />
+      <stop offset="50%" stop-color="#172554" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="barBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+    <linearGradient id="barGreen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="520" fill="url(#heroBg)" />
+
+  <!-- Subtle background grid -->
+  <g stroke="#1e293b" stroke-width="1">
+    <line x1="0" y1="100" x2="800" y2="100" />
+    <line x1="0" y1="200" x2="800" y2="200" />
+    <line x1="0" y1="300" x2="800" y2="300" />
+    <line x1="0" y1="400" x2="800" y2="400" />
+    <line x1="160" y1="0" x2="160" y2="520" />
+    <line x1="320" y1="0" x2="320" y2="520" />
+    <line x1="480" y1="0" x2="480" y2="520" />
+    <line x1="640" y1="0" x2="640" y2="520" />
+  </g>
+
+  <!-- Analytics Dashboard Screen Mockup in Background -->
+  <g transform="translate(330, 56)">
+    <rect width="420" height="290" rx="14" fill="#0f172a" stroke="#334155" stroke-width="1.5" />
+    <!-- Top bar -->
+    <circle cx="22" cy="20" r="4" fill="#ef4444" />
+    <circle cx="36" cy="20" r="4" fill="#f59e0b" />
+    <circle cx="50" cy="20" r="4" fill="#10b981" />
+    <text x="72" y="24" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#94a3b8">ДАШБОРД ПРИБЫЛИ ОП • ПЛАН / ФАКТ</text>
+
+    <!-- Chart Bars -->
+    <g transform="translate(30, 60)">
+      <rect x="0" y="120" width="32" height="70" rx="4" fill="url(#barBlue)" opacity="0.6" />
+      <rect x="52" y="95" width="32" height="95" rx="4" fill="url(#barBlue)" opacity="0.75" />
+      <rect x="104" y="70" width="32" height="120" rx="4" fill="url(#barBlue)" opacity="0.9" />
+      <rect x="156" y="42" width="32" height="148" rx="4" fill="url(#barGreen)" />
+      <rect x="208" y="18" width="32" height="172" rx="4" fill="url(#barGreen)" />
+
+      <!-- Trend line -->
+      <polyline fill="none" stroke="#34d399" stroke-width="3" points="16,110 68,85 120,58 172,30 224,8" />
+      <circle cx="224" cy="8" r="5" fill="#10b981" stroke="#fff" stroke-width="2" />
+    </g>
+
+    <!-- KPI Pill -->
+    <g transform="translate(290, 75)">
+      <rect width="106" height="68" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1" />
+      <text x="14" y="24" font-family="Inter, sans-serif" font-size="10" fill="#94a3b8">ФАКТ ВЫРУЧКИ</text>
+      <text x="14" y="46" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#10b981">+114.8%</text>
+      <text x="14" y="60" font-family="Inter, sans-serif" font-size="9" fill="#cbd5e1">к плану месяца</text>
+    </g>
+
+    <g transform="translate(290, 158)">
+      <rect width="106" height="68" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1" />
+      <text x="14" y="24" font-family="Inter, sans-serif" font-size="10" fill="#94a3b8">SQL → СДЕЛКА</text>
+      <text x="14" y="46" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#60a5fa">34.2%</text>
+      <text x="14" y="60" font-family="Inter, sans-serif" font-size="9" fill="#cbd5e1">конверсия ОП</text>
+    </g>
+  </g>
+
+  <!-- Executive Silhouette (Left Foreground) -->
+  <g transform="translate(55, 85)">
+    <!-- Body -->
+    <path d="M 15 395 C 15 285, 75 245, 145 245 C 215 245, 275 285, 275 395 Z" fill="#1e293b" stroke="#475569" stroke-width="2" />
+    <!-- Shirt & Tie -->
+    <polygon points="120,247 145,325 170,247" fill="#f1f5f9" />
+    <polygon points="140,262 150,262 154,330 145,345 136,330" fill="#3b82f6" />
+    <!-- Head -->
+    <rect x="124" y="198" width="42" height="52" rx="16" fill="#64748b" />
+    <rect x="96" y="72" width="98" height="132" rx="46" fill="#94a3b8" stroke="#cbd5e1" stroke-width="2" />
+  </g>
+
+  <!-- Dashed Placeholder Frame -->
+  <rect x="18" y="18" width="764" height="484" rx="14" fill="none" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="8 6" opacity="0.65" />
+
+  <!-- Top Tag -->
+  <g transform="translate(36, 36)">
+    <rect width="340" height="34" rx="17" fill="#0f172a" fill-opacity="0.9" stroke="#3b82f6" stroke-width="1" />
+    <circle cx="18" cy="17" r="4.5" fill="#3b82f6" />
+    <text x="32" y="21" font-family="Inter, system-ui, sans-serif" font-size="11.5" font-weight="600" fill="#e2e8f0" letter-spacing="0.05em">ЗАПАЙКА ОБЛОЖКИ: ДИРЕКТОР И ДАШБОРД ПРИБЫЛИ</text>
+  </g>
+
+  <!-- Bottom Caption -->
+  <g transform="translate(36, 412)">
+    <rect width="728" height="68" rx="10" fill="#0f172a" fill-opacity="0.9" stroke="#334155" stroke-width="1" />
+    <text x="20" y="28" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="700" fill="#f8fafc">Место под ваше фото (или фото директора за аналитикой прибыли на дашборде)</text>
+    <text x="20" y="50" font-family="Inter, system-ui, sans-serif" font-size="12.5" fill="#94a3b8">Нажмите «Загрузить фото» поверх карточки или замените файл assets/director-dashboard.svg</text>
+  </g>
+</svg>
