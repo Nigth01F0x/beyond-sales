@@ -1,10 +1,10 @@
 /**
- * ЗА ГРАНЬЮ ПРОДАЖ — Скрипт лендинга и модального окна спецификации
+ * ЗА ГРАНЬЮ ПРОДАЖ — Логика полноэкранного лендинга, мобильного меню и модального окна
  */
 
 document.addEventListener("DOMContentLoaded", () => {
   /* ==========================================================================
-     1. ДАННЫЕ ПРОГРАММ ДЛЯ МОДАЛЬНОГО ОКНА (ИЗ ODS)
+     1. ПОЛНАЯ СПЕЦИФИКАЦИЯ ПРОГРАММ (ИЗ ODS ФАЙЛА)
      ========================================================================== */
   const PROGRAMS = {
     baza: {
@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("specModal");
   const modalBody = document.getElementById("modalBody");
   const closeModalBtn = document.getElementById("closeModalBtn");
-  const modalTabs = document.querySelectorAll(".modal-tab");
+  const modalTabs = document.querySelectorAll(".m-tab");
 
   function renderModal(tierKey) {
     const data = PROGRAMS[tierKey];
@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
       ${stagesHtml}
       <div class="m-conditions">
-        <strong>Условия старта работ:</strong> необходимо предоставить доступы к регламентам ОП, текущим формам планов и отчетности, CRM-системе и статистикам (MQL, SQL, сделки, конверсии).
+        <strong>Необходимые доступы для старта работ:</strong> регламенты ОП, текущие формы планов и отчетности, CRM-система и статистики (MQL, SQL, сделки, конверсии).
       </div>
     `;
   }
@@ -214,6 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
       renderModal(tier);
       modal.classList.add("open");
       modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
     });
   });
 
@@ -226,6 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function closeModal() {
     modal.classList.remove("open");
     modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
   }
 
   closeModalBtn?.addEventListener("click", closeModal);
@@ -237,21 +239,32 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* ==========================================================================
-     3. МОБИЛЬНОЕ МЕНЮ
+     3. ПОЛНОЭКРАННОЕ МОБИЛЬНОЕ МЕНЮ
      ========================================================================== */
   const burgerBtn = document.getElementById("burgerBtn");
-  const mainNav = document.getElementById("mainNav");
+  const mobileDrawer = document.getElementById("mobileDrawer");
 
-  burgerBtn?.addEventListener("click", () => {
-    mainNav.classList.toggle("open");
-  });
+  function toggleMobileMenu(forceState) {
+    const isOpen =
+      typeof forceState === "boolean"
+        ? forceState
+        : !mobileDrawer.classList.contains("open");
 
-  mainNav?.querySelectorAll("a").forEach((a) => {
-    a.addEventListener("click", () => mainNav.classList.remove("open"));
+    mobileDrawer.classList.toggle("open", isOpen);
+    burgerBtn.classList.toggle("active", isOpen);
+    burgerBtn.setAttribute("aria-expanded", String(isOpen));
+    mobileDrawer.setAttribute("aria-hidden", String(!isOpen));
+    document.body.style.overflow = isOpen ? "hidden" : "";
+  }
+
+  burgerBtn?.addEventListener("click", () => toggleMobileMenu());
+
+  mobileDrawer?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => toggleMobileMenu(false));
   });
 
   /* ==========================================================================
-     4. ЗАМЕНА ФОТО-ЗАПАЕК В БРАУЗЕРЕ
+     4. ЗАМЕНА ФОТО-ЗАПАЕК В 1 КЛИК
      ========================================================================== */
   const photoInput = document.getElementById("photoInput");
   let currentPhotoTarget = null;
@@ -262,7 +275,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (saved && img) img.src = saved;
   });
 
-  document.querySelectorAll(".photo-replace-btn").forEach((btn) => {
+  document.querySelectorAll(".replace-photo-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
       currentPhotoTarget = btn.getAttribute("data-target");
       photoInput.value = "";
@@ -289,7 +302,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* ==========================================================================
-     5. ВЫБОР ТАРИФА И ФОРМА ЗАПИСИ НА ВЕБИНАР
+     5. ВЫБОР ТАРИФА И ФОРМА ЗАЯВКИ
      ========================================================================== */
   const userTariff = document.getElementById("userTariff");
   document.querySelectorAll(".js-choose-tariff").forEach((btn) => {
