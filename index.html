@@ -2,102 +2,163 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>За гранью продаж — Построение систем управления продажами</title>
-  <meta name="description" content="Комплексное построение системы управления продажами за 4–12 недель. Аудит, оргструктура, планирование, отчетность, CRM. Консультант Андрей Сахаров." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#080a0f" />
+  <title>За гранью продаж — Архитектура и построение отделов продаж</title>
+  <meta name="description" content="Построение системы управления продажами под ключ за 4–12 недель. Аудит, оргструктура, планирование, отчетность, CRM. Консультант Андрей Сахаров." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Скрытый input для быстрой замены фото-запайки прямо в браузере -->
+  <!-- Скрытый input для быстрой замены фото-запайки в браузере -->
   <input type="file" id="photoInput" accept="image/*" hidden />
 
-  <!-- ================= ШАПКА ================= -->
-  <header class="header" id="top">
-    <div class="container header-row">
-      <a href="#top" class="logo">
-        <span class="logo-box">ЗГП</span>
-        <span class="logo-name">За гранью продаж</span>
+  <!-- ================= EDGE-TO-EDGE ШАПКА НА ВЕСЬ ЭКРАН ================= -->
+  <header class="site-header" id="top">
+    <div class="header-full">
+      <a href="#top" class="brand">
+        <span class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+            <path d="M3 3v18h18" />
+            <path d="m19 9-5 5-4-4-3 3" />
+          </svg>
+        </span>
+        <span class="brand-text">
+          <strong>ЗА ГРАНЬЮ ПРОДАЖ</strong>
+          <small>Системы управления продажами</small>
+        </span>
       </a>
 
-      <nav class="nav" id="mainNav">
+      <nav class="desktop-nav" aria-label="Навигация">
         <a href="#about">О системе</a>
         <a href="#advantages">Преимущества</a>
-        <a href="#programs">Программы</a>
+        <a href="#programs">Тарифы</a>
         <a href="#expert">Консультант</a>
         <a href="#contacts">Контакты</a>
       </nav>
 
-      <div class="header-right">
+      <div class="header-actions">
         <a href="tel:+79000000000" class="header-phone">+7 (900) 000-00-00</a>
-        <a href="#webinar" class="btn btn-primary btn-sm">Записаться на вебинар</a>
-        <button type="button" class="burger" id="burgerBtn" aria-label="Меню">
-          <span></span><span></span>
+        <a href="#webinar" class="btn btn-accent btn-header">Записаться на вебинар</a>
+        <button type="button" class="burger-btn" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">
+          <span></span>
+          <span></span>
         </button>
       </div>
     </div>
   </header>
 
+  <!-- Мобильное полноэкранное меню -->
+  <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="mobile-drawer-inner">
+      <nav class="mobile-nav">
+        <a href="#about" class="m-link"><span>01</span> О системе</a>
+        <a href="#advantages" class="m-link"><span>02</span> Преимущества</a>
+        <a href="#programs" class="m-link"><span>03</span> Программы и цены</a>
+        <a href="#expert" class="m-link"><span>04</span> Андрей Сахаров</a>
+        <a href="#contacts" class="m-link"><span>05</span> Контакты</a>
+      </nav>
+      <div class="mobile-drawer-footer">
+        <a href="tel:+79000000000" class="mobile-phone">+7 (900) 000-00-00</a>
+        <a href="#webinar" class="btn btn-accent btn-full m-cta">Записаться на вебинар</a>
+      </div>
+    </div>
+  </div>
+
   <main>
-    <!-- ================= 1. ОБЛОЖКА (HERO) ================= -->
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-text">
-          <div class="hero-tag">Системный консалтинг отделов продаж</div>
-          <h1>Сокращаем разрыв между ожидаемой и фактической прибылью</h1>
-          <p class="hero-sub">
-            Внедряем систему управления продажами «под ключ» за 4–12 недель: от аудита и оргструктуры до прозрачной CRM, ежедневных дашбордов и скриптов.
-          </p>
+    <!-- ================= 1. HERO НА ВЕСЬ ЭКРАН (100% VIEWPORT) ================= -->
+    <section class="hero-full">
+      <div class="hero-ambient" aria-hidden="true"></div>
 
-          <div class="hero-actions">
-            <a href="#webinar" class="btn btn-primary btn-lg">Записаться на вебинар</a>
-            <a href="#programs" class="btn btn-outline-light btn-lg">Смотреть программы</a>
+      <div class="hero-split">
+        <!-- Левая часть обложки -->
+        <div class="hero-left">
+          <div class="hero-top-content">
+            <div class="status-pill">
+              <span class="status-dot"></span>
+              <span>Внедрение системы продаж «под ключ» за 4–12 недель</span>
+            </div>
+
+            <h1 class="hero-title">
+              Сокращаем разрыв между <span class="accent-grad">ожидаемой</span> и фактической прибылью
+            </h1>
+
+            <p class="hero-lead">
+              Компания <strong>«За гранью продаж»</strong> выстраивает управляемую архитектуру отдела продаж: аудит, оргструктура с ЦКП, планирование, ежедневные дашборды и порядок в CRM.
+            </p>
+
+            <div class="hero-btns">
+              <a href="#webinar" class="btn btn-accent btn-xl">
+                <span>Записаться на вебинар</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <path d="M7 17L17 7M17 7H8M17 7V16"/>
+                </svg>
+              </a>
+              <a href="#programs" class="btn btn-glass btn-xl">Смотреть программы</a>
+            </div>
           </div>
 
-          <div class="hero-stats">
-            <div class="hero-stat">
-              <strong>4–12 недель</strong>
-              <span>срок полного внедрения</span>
+          <!-- Полноширинная шкала ключевых метрик по низу первого экрана -->
+          <div class="hero-metrics-bar">
+            <div class="hm-cell">
+              <span class="hm-num">≤ 12 нед.</span>
+              <span class="hm-txt">срок полного цикла внедрения</span>
             </div>
-            <div class="hero-stat">
-              <strong>2 недели</strong>
-              <span>шаг персонального трека</span>
+            <div class="hm-cell">
+              <span class="hm-num">2 недели</span>
+              <span class="hm-txt">шаг персонального трека развития</span>
             </div>
-            <div class="hero-stat">
-              <strong>100%</strong>
-              <span>аттестация сотрудников</span>
+            <div class="hm-cell">
+              <span class="hm-num">100%</span>
+              <span class="hm-txt">аттестация каждого менеджера</span>
             </div>
           </div>
         </div>
 
-        <!-- Правая часть: Фото-запайка директора / аналитики прибыли -->
-        <div class="hero-media">
-          <!-- ЗАПАЙКА ФОТО №1: Замените src на путь к вашему фото -->
-          <div class="photo-frame hero-photo-frame">
-            <img
-              id="heroPhoto"
-              src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1000&q=85"
-              alt="Руководитель за аналитикой показателей прибыли на дашборде"
-            />
-            <button type="button" class="photo-replace-btn" data-target="heroPhoto" title="Нажмите, чтобы примерить своё фото">
-              Заменить фото (запайка)
-            </button>
+        <!-- Правая часть обложки: Полноформатное фото директора + виджет дашборда прибыли -->
+        <div class="hero-right">
+          <div class="hero-visual-card">
+            <!-- ЗАПАЙКА ФОТО №1 (ОБЛОЖКА) -->
+            <div class="photo-box hero-photo-box">
+              <img
+                id="heroPhoto"
+                src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1600&q=85"
+                alt="Директор за подсчетом прибыли на дашборде"
+              />
+              <div class="photo-gradient"></div>
+              <button type="button" class="replace-photo-btn" data-target="heroPhoto">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                  <circle cx="12" cy="13" r="4"/>
+                </svg>
+                <span>Ваше фото (запайка)</span>
+              </button>
+            </div>
 
-            <!-- Лаконичная плашка дашборда поверх фото -->
-            <div class="floating-dashboard">
-              <div class="fd-row">
+            <!-- Виджет дашборда (на ПК поверх нижней части, на смартфоне — отдельным четким блоком без перекрытия лица) -->
+            <div class="hud-dashboard">
+              <div class="hud-head">
                 <div>
-                  <span class="fd-label">План / Факт отдела продаж</span>
-                  <strong class="fd-value">14 850 000 ₽</strong>
+                  <span class="hud-caption">Контроль прибыли на дашборде</span>
+                  <strong class="hud-revenue">14 850 000 ₽</strong>
                 </div>
-                <span class="fd-badge">+106% к плану</span>
+                <span class="hud-growth">+106% план/факт</span>
               </div>
-              <div class="fd-metrics">
-                <span>MQL → SQL: <b>68%</b></span>
-                <span>SQL → Сделка: <b>34%</b></span>
-                <span>Отчетность: <b>Ежедневно</b></span>
+              <div class="hud-bars">
+                <div class="hud-metric">
+                  <span>Лиды (MQL → SQL)</span>
+                  <b>68.4%</b>
+                </div>
+                <div class="hud-metric">
+                  <span>Конверсия в сделку</span>
+                  <b>34.2%</b>
+                </div>
+                <div class="hud-metric">
+                  <span>Сводный отчет ОП</span>
+                  <b>24/7 Live</b>
+                </div>
               </div>
             </div>
           </div>
@@ -105,185 +166,217 @@
       </div>
     </section>
 
-    <!-- ================= 2. О НАС И О СИСТЕМЕ УПРАВЛЕНИЯ ================= -->
-    <section class="section section-light" id="about">
-      <div class="container">
-        <div class="section-head-split">
-          <div>
-            <span class="eyebrow">О компании и подходе</span>
-            <h2>Управляемая структура, готовая к масштабированию</h2>
+    <!-- ================= 2. О СИСТЕМЕ И КОМПАНИИ (FULL-WIDTH ARCHITECTURAL GRID) ================= -->
+    <section class="full-section section-surface" id="about">
+      <div class="edge-wrap">
+        <div class="split-intro">
+          <div class="split-intro-left">
+            <span class="sec-index">01 / О компании и системе</span>
+            <h2 class="sec-heading">Управляемая структура, готовая к любому масштабированию</h2>
           </div>
-          <p class="lead-p">
-            Компания <strong>«За гранью продаж»</strong> проводит аудит процессов, подбирает инструменты и внедряет систему управления «под ключ». Мы трансформируем культуру работы с задачами, координации, переговоры, CRM и отчетность — снижая издержки и кратно повышая эффективность отдела.
-          </p>
+          <div class="split-intro-right">
+            <p class="sec-lead">
+              Мы проводим аудит процессов отдела продаж, подбираем точный набор инструментов и внедряем систему «под ключ». Трансформируем работу с задачами, координации, переговоры, CRM и отчетность — снижая издержки и кратно повышая управляемость бизнеса.
+            </p>
+          </div>
         </div>
 
-        <!-- 4 лаконичных столпа системы (п. 2 ODS) -->
-        <div class="pillars-grid">
-          <div class="pillar-item">
-            <span class="pillar-num">01</span>
+        <!-- 4 столпа на всю ширину экрана -->
+        <div class="pillars-full-grid">
+          <article class="pillar-panel">
+            <div class="pp-top">
+              <span class="pp-num">01</span>
+              <span class="pp-tag">Структура и роли</span>
+            </div>
             <h3>Система и ЦКП</h3>
-            <p>Четкая оргструктура с описанием ролей, функций и ценного конечного продукта (ЦКП) каждого сотрудника.</p>
-          </div>
+            <p>Прозрачная оргструктура с фиксацией ролей, функций и ценного конечного продукта (ЦКП) каждого сотрудника отдела.</p>
+          </article>
 
-          <div class="pillar-item">
-            <span class="pillar-num">02</span>
+          <article class="pillar-panel">
+            <div class="pp-top">
+              <span class="pp-num">02</span>
+              <span class="pp-tag">Ритм управления</span>
+            </div>
             <h3>Регулярные координации</h3>
-            <p>Декомпозиция планов на месяц и неделю. Выявление отклонений до того, как месяц закроется в минус.</p>
-          </div>
+            <p>Декомпозиция планов на месяц и неделю. Выявление и коррекция отклонений до того, как месяц закроется в минус.</p>
+          </article>
 
-          <div class="pillar-item">
-            <span class="pillar-num">03</span>
-            <h3>Твердая отчетность</h3>
-            <p>Ежедневный контроль метрик MQL, SQL, конверсий и сумм сделок в наглядных таблицах и диаграммах.</p>
-          </div>
+          <article class="pillar-panel">
+            <div class="pp-top">
+              <span class="pp-num">03</span>
+              <span class="pp-tag">Твердые цифры</span>
+            </div>
+            <h3>Система отчетности</h3>
+            <p>Ежедневный трекинг MQL, SQL, конверсий и сумм сделок в наглядных таблицах и диаграммах за день, неделю, месяц и год.</p>
+          </article>
 
-          <div class="pillar-item">
-            <span class="pillar-num">04</span>
+          <article class="pillar-panel">
+            <div class="pp-top">
+              <span class="pp-num">04</span>
+              <span class="pp-tag">Конвейер сделок</span>
+            </div>
             <h3>Порядок в CRM</h3>
-            <p>Прозрачные воронки продаж, жесткие правила ведения сделок и работа с задачами без потерь лидов.</p>
-          </div>
+            <p>Выстроенные воронки продаж («как есть → как будет»), жесткие правила ведения сделок и нулевая потеря целевых лидов.</p>
+          </article>
         </div>
 
-        <!-- Причины доверия (строка 14 ODS) в одной лаконичной полосе -->
-        <div class="trust-strip">
-          <div class="trust-cell">
-            <strong>Твердые артефакты</strong>
-            <span>Готовые шаблоны таблиц, регламентов, папок должностей и дашбордов остаются у вас</span>
+        <!-- Полноширинная лента гарантий доверия (строка 14 ODS) -->
+        <div class="trust-band">
+          <div class="tb-item">
+            <span class="tb-icon">✓</span>
+            <div>
+              <strong>Твердые артефакты навсегда</strong>
+              <span>Все таблицы, дашборды, регламенты и папки должностей остаются в компании</span>
+            </div>
           </div>
-          <div class="trust-cell">
-            <strong>Аттестация 100%</strong>
-            <span>Каждый сотрудник сдает обязательное тестирование по внедренным инструментам</span>
+          <div class="tb-item">
+            <span class="tb-icon">✓</span>
+            <div>
+              <strong>Обязательная аттестация 100%</strong>
+              <span>Каждый сотрудник сдает тестирование в Google Формах по новым инструментам</span>
+            </div>
           </div>
-          <div class="trust-cell">
-            <strong>AI-ready стандарты</strong>
-            <span>Чек-листы звонков и встреч адаптированы для автоматической проверки AI-агентами</span>
+          <div class="tb-item">
+            <span class="tb-icon">✓</span>
+            <div>
+              <strong>Готовность к AI-проверкам</strong>
+              <span>Чек-листы контроля звонков и встреч адаптированы для аудита AI-агентами</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= 3. ПРЕИМУЩЕСТВА ================= -->
-    <section class="section section-dark" id="advantages">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow eyebrow-light">Преимущества</span>
-          <h2>Быстрое внедрение без отрыва от текущих продаж</h2>
+    <!-- ================= 3. ПРЕИМУЩЕСТВА (FULL-BLEED METRIC BAND) ================= -->
+    <section class="full-section section-obsidian" id="advantages">
+      <div class="edge-wrap">
+        <div class="adv-header">
+          <span class="sec-index">02 / Преимущества подхода</span>
+          <h2 class="sec-heading">Быстрый результат по двухнедельным трекам</h2>
         </div>
 
-        <div class="adv-grid">
-          <div class="adv-card">
-            <div class="adv-num">≤ 12 недель</div>
-            <h3>Небольшой срок</h3>
-            <p>От 4 недель для запуска базового контура управления до 12 недель для полной трансформации отдела.</p>
+        <div class="adv-bento">
+          <div class="adv-tile">
+            <div class="adv-giant">≤ 12 <span>недель</span></div>
+            <h3>Небольшой срок внедрения</h3>
+            <p>От 4 недель для запуска базового управленческого контура до 12 недель для полной перестройки со скриптами и мотивацией.</p>
           </div>
 
-          <div class="adv-card adv-card-highlight">
-            <div class="adv-num">2 недели</div>
+          <div class="adv-tile adv-tile-accent">
+            <div class="adv-giant">2 <span>недели</span></div>
             <h3>Индивидуальный подход</h3>
-            <p>Каждые 2 недели составляем и корректируем персональный трек развития системы под задачи вашего бизнеса.</p>
+            <p>Каждые 2 недели составляем и корректируем персональный трек развития системы под специфику и динамику вашего бизнеса.</p>
           </div>
 
-          <div class="adv-card">
-            <div class="adv-num">Практика</div>
-            <h3>Лучшие инструменты</h3>
-            <p>Список регламентов, дашбордов и принципов работы сформирован исключительно на базе успешного опыта внедрений.</p>
+          <div class="adv-tile">
+            <div class="adv-giant">100% <span>практика</span></div>
+            <h3>Лучшие практики рынка</h3>
+            <p>Весь список инструментов, таблиц и управленческих принципов сформирован на базе успешного опыта реальных внедрений.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= 4. ПРОГРАММЫ (ТАРИФЫ) ================= -->
-    <section class="section section-light" id="programs">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Программы внедрения</span>
-          <h2>Три формата построения системы продаж</h2>
-          <p class="section-sub">Нажмите «Подробнее и примеры документов» в любой карточке, чтобы увидеть полную смету в часах и образцы таблиц.</p>
+    <!-- ================= 4. ПРОГРАММЫ ВНЕДРЕНИЯ (НА ВСЮ ШИРИНУ) ================= -->
+    <section class="full-section section-surface" id="programs">
+      <div class="edge-wrap">
+        <div class="split-intro">
+          <div class="split-intro-left">
+            <span class="sec-index">03 / Программы и стоимость</span>
+            <h2 class="sec-heading">Три уровня трансформации отдела продаж</h2>
+          </div>
+          <div class="split-intro-right">
+            <p class="sec-lead">
+              Фиксированные сроки, прозрачная смета в человеко-часах и открытые образцы всех отчетных документов по каждому этапу.
+            </p>
+          </div>
         </div>
 
-        <div class="tariffs-grid">
-          <!-- БАЗА -->
-          <article class="tariff-card">
-            <div class="tariff-top">
-              <div class="tariff-meta">
-                <span class="tariff-badge">4 недели</span>
-                <span class="tariff-hours">138 чел/ч</span>
+        <div class="tariffs-full-grid">
+          <!-- ТАРИФ 1: БАЗА -->
+          <article class="t-card">
+            <div class="t-head">
+              <div class="t-badges">
+                <span class="t-pill">4 недели</span>
+                <span class="t-hours">138 чел/час</span>
               </div>
-              <h3 class="tariff-name">База</h3>
-              <div class="tariff-price">110 400 ₽</div>
-              <p class="tariff-desc">Фундамент управления: аудит, оргструктура, планы и ежедневная отчетность.</p>
+              <h3 class="t-title">БАЗА</h3>
+              <div class="t-price">110 400 ₽</div>
+              <p class="t-summary">Фундамент регулярного управления: аудит, оргструктура, планирование и ежедневная отчетность.</p>
             </div>
 
-            <ul class="tariff-features">
-              <li>Аудит текущей системы управления ОП</li>
-              <li>Орг. структура и описание ЦКП (до 5 сотр.)</li>
-              <li>Планирование ОП на месяц и неделю</li>
-              <li>Внедрение ежедневной отчетности и диаграмм</li>
-              <li>Обучение и тестирование сотрудников (100%)</li>
+            <ul class="t-list">
+              <li><span>01</span> Аудит текущей системы управления ОП (40 ч)</li>
+              <li><span>02</span> Орг. структура и описание ЦКП до 5 сотр. (16 ч)</li>
+              <li><span>03</span> Планирование ОП на месяц и неделю (32 ч)</li>
+              <li><span>04</span> Внедрение ежедневной отчетности и диаграмм (40 ч)</li>
+              <li><span>05</span> Обучение и аттестация сотрудников на 100% (10 ч)</li>
             </ul>
 
-            <div class="tariff-actions">
-              <a href="#webinar" class="btn btn-dark btn-full js-choose-tariff" data-tariff="БАЗА (4 недели — 110 400 ₽)">Выбрать «База»</a>
-              <button type="button" class="btn-details js-open-modal" data-modal-tier="baza">
-                Подробнее и примеры документов →
+            <div class="t-foot">
+              <a href="#webinar" class="btn btn-outline-full js-choose-tariff" data-tariff="БАЗА (4 недели — 110 400 ₽)">Выбрать «База»</a>
+              <button type="button" class="t-spec-btn js-open-modal" data-modal-tier="baza">
+                <span>Отчетные документы и примеры таблиц</span>
+                <span>↗</span>
               </button>
             </div>
           </article>
 
-          <!-- ЭКСПЕРТ -->
-          <article class="tariff-card tariff-card-featured">
-            <div class="tariff-popular">Рекомендуемый выбор</div>
-            <div class="tariff-top">
-              <div class="tariff-meta">
-                <span class="tariff-badge">8 недель</span>
-                <span class="tariff-hours">252 чел/ч</span>
+          <!-- ТАРИФ 2: ЭКСПЕРТ -->
+          <article class="t-card t-card-featured">
+            <div class="t-ribbon">Оптимальный выбор</div>
+            <div class="t-head">
+              <div class="t-badges">
+                <span class="t-pill t-pill-accent">8 недель</span>
+                <span class="t-hours">252 чел/час</span>
               </div>
-              <h3 class="tariff-name">Эксперт</h3>
-              <div class="tariff-price">201 600 ₽</div>
-              <p class="tariff-desc">Системный порядок в задачах, стандартах должности менеджера и воронках CRM.</p>
+              <h3 class="t-title">ЭКСПЕРТ</h3>
+              <div class="t-price">201 600 ₽</div>
+              <p class="t-summary">Системный порядок в задачах, стандартах должности менеджера и архитектуре воронок CRM.</p>
             </div>
 
-            <ul class="tariff-features">
-              <li><strong>Все блоки и документы программы «База»</strong></li>
-              <li>Внедрение принципов и регламента по задачам</li>
-              <li>Разработка Папки должности менеджера ОП</li>
-              <li>Аудит текущей CRM-системы (до 5 воронок)</li>
-              <li>Обучение и итоговая аттестация (100%)</li>
+            <ul class="t-list">
+              <li class="t-highlight"><span>★</span> Все результаты и документы программы «База» (138 ч)</li>
+              <li><span>02</span> Регламент и принципы работы с задачами (24 ч)</li>
+              <li><span>03</span> Разработка Папки должности менеджера ОП (40 ч)</li>
+              <li><span>04</span> Аудит текущей CRM-системы до 5 воронок (40 ч)</li>
+              <li><span>05</span> Обучение и итоговая аттестация на 100% (10 ч)</li>
             </ul>
 
-            <div class="tariff-actions">
-              <a href="#webinar" class="btn btn-primary btn-full js-choose-tariff" data-tariff="ЭКСПЕРТ (8 недель — 201 600 ₽)">Выбрать «Эксперт»</a>
-              <button type="button" class="btn-details js-open-modal" data-modal-tier="expert">
-                Подробнее и примеры документов →
+            <div class="t-foot">
+              <a href="#webinar" class="btn btn-accent btn-full js-choose-tariff" data-tariff="ЭКСПЕРТ (8 недель — 201 600 ₽)">Выбрать «Эксперт»</a>
+              <button type="button" class="t-spec-btn js-open-modal" data-modal-tier="expert">
+                <span>Отчетные документы и примеры таблиц</span>
+                <span>↗</span>
               </button>
             </div>
           </article>
 
-          <!-- ПРОФИ -->
-          <article class="tariff-card">
-            <div class="tariff-top">
-              <div class="tariff-meta">
-                <span class="tariff-badge">12 недель</span>
-                <span class="tariff-hours">422 чел/ч</span>
+          <!-- ТАРИФ 3: ПРОФИ -->
+          <article class="t-card">
+            <div class="t-head">
+              <div class="t-badges">
+                <span class="t-pill">12 недель</span>
+                <span class="t-hours">422 чел/час</span>
               </div>
-              <h3 class="tariff-name">Профи</h3>
-              <div class="tariff-price">337 600 ₽</div>
-              <p class="tariff-desc">Полная трансформация: скрипты, сценарии встреч, AI-контроль качества и мотивация.</p>
+              <h3 class="t-title">ПРОФИ</h3>
+              <div class="t-price">337 600 ₽</div>
+              <p class="t-summary">Максимальная комплектация: скрипты, сценарии встреч, AI-контроль качества и система мотивации.</p>
             </div>
 
-            <ul class="tariff-features">
-              <li><strong>Все блоки и документы программы «Эксперт»</strong></li>
-              <li>Скрипт звонка, сценарий и презентация встречи</li>
-              <li>Внедрение контроля качества (AI-ready листы)</li>
-              <li>Разработка системы вознаграждения ОП</li>
-              <li>Обучение и итоговая аттестация (100%)</li>
+            <ul class="t-list">
+              <li class="t-highlight"><span>★</span> Все результаты и документы программы «Эксперт» (252 ч)</li>
+              <li><span>02</span> Скрипт звонка, сценарий и презентация встречи (80 ч)</li>
+              <li><span>03</span> Внедрение контроля качества (AI-ready чек-листы) (40 ч)</li>
+              <li><span>04</span> Система вознаграждения менеджеров ОП (40 ч)</li>
+              <li><span>05</span> Обучение и итоговая аттестация на 100% (10 ч)</li>
             </ul>
 
-            <div class="tariff-actions">
-              <a href="#webinar" class="btn btn-dark btn-full js-choose-tariff" data-tariff="ПРОФИ (12 недель — 337 600 ₽)">Выбрать «Профи»</a>
-              <button type="button" class="btn-details js-open-modal" data-modal-tier="profi">
-                Подробнее и примеры документов →
+            <div class="t-foot">
+              <a href="#webinar" class="btn btn-outline-full js-choose-tariff" data-tariff="ПРОФИ (12 недель — 337 600 ₽)">Выбрать «Профи»</a>
+              <button type="button" class="t-spec-btn js-open-modal" data-modal-tier="profi">
+                <span>Отчетные документы и примеры таблиц</span>
+                <span>↗</span>
               </button>
             </div>
           </article>
@@ -291,47 +384,61 @@
       </div>
     </section>
 
-    <!-- ================= 5. КОМАНДА / КОНСУЛЬТАНТ ================= -->
-    <section class="section section-white" id="expert">
-      <div class="container">
-        <div class="expert-grid">
-          <!-- ЗАПАЙКА ФОТО №2: Портрет директора / консультанта -->
-          <div class="photo-frame expert-photo-frame">
-            <img
-              id="expertPhoto"
-              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=900&q=85"
-              alt="Андрей Сахаров — консультант по построению систем управления продажами"
-            />
-            <button type="button" class="photo-replace-btn" data-target="expertPhoto" title="Нажмите, чтобы примерить своё фото">
-              Заменить фото (запайка)
-            </button>
+    <!-- ================= 5. КОМАНДА / КОНСУЛЬТАНТ АНДРЕЙ САХАРОВ ================= -->
+    <section class="full-section section-obsidian" id="expert">
+      <div class="edge-wrap">
+        <div class="expert-full-split">
+          <!-- Левая колонка: Крупный портрет директора (запайка) -->
+          <div class="expert-visual-col">
+            <div class="photo-box expert-photo-box">
+              <img
+                id="expertPhoto"
+                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1400&q=85"
+                alt="Андрей Сахаров — основатель и ведущий консультант «За гранью продаж»"
+              />
+              <div class="photo-gradient"></div>
+              <button type="button" class="replace-photo-btn" data-target="expertPhoto">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                  <circle cx="12" cy="13" r="4"/>
+                </svg>
+                <span>Ваше фото (запайка)</span>
+              </button>
+              <div class="expert-photo-caption">
+                <strong>Андрей Сахаров</strong>
+                <span>Основатель «За гранью продаж» • Ведущий консультант</span>
+              </div>
+            </div>
           </div>
 
-          <div class="expert-content">
-            <span class="eyebrow">Команда проекта</span>
-            <h2>Андрей Сахаров</h2>
-            <p class="expert-role">Основатель «За гранью продаж», ведущий консультант по построению систем управления продажами</p>
-
-            <p class="expert-bio">
-              Специализируется на переводе отделов продаж из «ручного управления» в оцифрованную систему с точным планированием, прозрачной аналитикой и измеримым результатом каждого сотрудника.
+          <!-- Правая колонка: Опыт и специализация -->
+          <div class="expert-text-col">
+            <span class="sec-index">04 / Команда и экспертиза</span>
+            <h2 class="sec-heading">Ваш консультант — Андрей Сахаров</h2>
+            <p class="expert-lead">
+              Практик построения и реорганизации отделов продаж. Переводит коммерческие подразделения из режима «ручного тушения пожаров» в систему с четким планированием, прозрачной CRM и измеримым ЦКП каждой роли.
             </p>
 
-            <div class="expert-points">
-              <div class="exp-point">
-                <strong>Практический опыт</strong>
-                <span>Более 50 реализованных проектов аудита и построения отделов продаж в B2B и B2C</span>
+            <div class="expert-bento-grid">
+              <div class="eb-card">
+                <span class="eb-num">50+ проектов</span>
+                <strong>Аудит и построение ОП</strong>
+                <p>Практический опыт внедрения систем управления продажами в B2B и B2C компаниях.</p>
               </div>
-              <div class="exp-point">
-                <strong>Личное ведение</strong>
-                <span>Прямое участие на каждом этапе: от диагностики CRM до аттестации менеджеров</span>
+              <div class="eb-card">
+                <span class="eb-num">MQL → SQL</span>
+                <strong>Управленческая аналитика</strong>
+                <p>Сквозная декомпозиция планов от новых лидов до чистой выручки в ежедневных дашбордах.</p>
               </div>
-              <div class="exp-point">
-                <strong>Оцифрованный результат</strong>
-                <span>Внедрение управления на основе метрик MQL, SQL, конверсий и ЦКП должностей</span>
+              <div class="eb-card">
+                <span class="eb-num">Регламенты</span>
+                <strong>Папки должностей и ЦКП</strong>
+                <p>Стандартизация работы менеджеров: карты болей ЦА, обработка возражений и правила CRM.</p>
               </div>
-              <div class="exp-point">
-                <strong>Современный стек</strong>
-                <span>Адаптация регламентов и листов контроля качества под проверку AI-агентами</span>
+              <div class="eb-card">
+                <span class="eb-num">AI-Ready</span>
+                <strong>Контроль качества</strong>
+                <p>Разработка скриптов звонков и сценариев встреч с чек-листами под проверку AI-агентами.</p>
               </div>
             </div>
           </div>
@@ -339,59 +446,71 @@
       </div>
     </section>
 
-    <!-- ================= 6. ФОРМА ДЛЯ ЗАПИСИ НА ВЕБИНАР ================= -->
-    <section class="section section-dark cta-section" id="webinar">
-      <div class="container">
-        <div class="cta-box">
-          <div class="cta-info">
-            <span class="eyebrow eyebrow-light">Онлайн-вебинар</span>
-            <h2>Запишитесь на разбор системы управления продажами</h2>
-            <p>
-              На вебинаре разберем реальные шаблоны планирования, дашборды ежедневной отчетности и пошаговый план сокращения разрыва между планом и фактом за 4–12 недель.
+    <!-- ================= 6. ФОРМА ЗАПИСИ НА ВЕБИНАР ================= -->
+    <section class="full-section section-cta" id="webinar">
+      <div class="edge-wrap">
+        <div class="cta-full-grid">
+          <div class="cta-left">
+            <span class="sec-index">05 / Запись на вебинар</span>
+            <h2 class="sec-heading">Разберем архитектуру отдела продаж на живом вебинаре</h2>
+            <p class="sec-lead">
+              Покажем реальные шаблоны планирования, дашборды ежедневной отчетности и пошаговый алгоритм сокращения разрыва между планом и фактом за 4–12 недель.
             </p>
-            <ul class="cta-bullets">
-              <li>Шаблоны оргструктуры и описания ЦКП сотрудников ОП</li>
-              <li>Таблицы декомпозиции MQL → SQL → Сделка</li>
-              <li>Ответы на вопросы по внедрению в вашей нише</li>
-            </ul>
+
+            <div class="cta-check-list">
+              <div class="ccl-item">
+                <span>01</span>
+                <p>Шаблоны оргструктуры и описания Ценного Конечного Продукта (ЦКП)</p>
+              </div>
+              <div class="ccl-item">
+                <span>02</span>
+                <p>Таблицы декомпозиции плана месяца и недели (MQL, SQL, сделки)</p>
+              </div>
+              <div class="ccl-item">
+                <span>03</span>
+                <p>Примеры Папки должности, скриптов и AI-чек-листов контроля качества</p>
+              </div>
+            </div>
           </div>
 
-          <div class="cta-form-wrap">
-            <form id="leadForm" class="lead-form" novalidate>
-              <h3>Оставить заявку</h3>
-              <p class="form-sub">Заполните форму — мы свяжемся с вами и пришлем приглашение</p>
+          <div class="cta-right">
+            <div class="form-panel">
+              <form id="leadForm" class="lead-form" novalidate>
+                <h3>Отправить заявку</h3>
+                <p class="form-hint">Оставьте имя и телефон — пришлем ссылку на вебинар и примеры таблиц</p>
 
-              <div class="field">
-                <label for="userName">Ваше имя</label>
-                <input type="text" id="userName" placeholder="Введите имя" required />
-                <span class="error-msg" id="nameError">Укажите ваше имя</span>
+                <div class="f-group">
+                  <label for="userName">Ваше имя</label>
+                  <input type="text" id="userName" name="name" placeholder="Как к вам обращаться" required autocomplete="name" />
+                  <span class="f-err" id="nameError">Пожалуйста, укажите имя</span>
+                </div>
+
+                <div class="f-group">
+                  <label for="userPhone">Телефон</label>
+                  <input type="tel" id="userPhone" name="phone" placeholder="+7 (___) ___-__-__" required autocomplete="tel" />
+                  <span class="f-err" id="phoneError">Введите корректный номер телефона</span>
+                </div>
+
+                <div class="f-group">
+                  <label for="userTariff">Формат участия</label>
+                  <select id="userTariff" name="tariff">
+                    <option value="Запись на вебинар">Участие в ближайшем вебинаре</option>
+                    <option value="БАЗА (4 недели — 110 400 ₽)">Программа «База» (4 недели — 110 400 ₽)</option>
+                    <option value="ЭКСПЕРТ (8 недель — 201 600 ₽)">Программа «Эксперт» (8 недель — 201 600 ₽)</option>
+                    <option value="ПРОФИ (12 недель — 337 600 ₽)">Программа «Профи» (12 недель — 337 600 ₽)</option>
+                  </select>
+                </div>
+
+                <button type="submit" class="btn btn-accent btn-xl btn-full">Отправить заявку</button>
+                <span class="f-privacy">Нажимая кнопку, вы соглашаетесь на обработку персональных данных</span>
+              </form>
+
+              <div id="formSuccess" class="form-done" hidden>
+                <div class="done-badge">✓</div>
+                <h3>Заявка принята</h3>
+                <p id="successText">Мы свяжемся с вами в ближайшее время.</p>
+                <button type="button" class="btn btn-glass btn-full" id="resetFormBtn">Отправить еще одну заявку</button>
               </div>
-
-              <div class="field">
-                <label for="userPhone">Телефон</label>
-                <input type="tel" id="userPhone" placeholder="+7 (___) ___-__-__" required />
-                <span class="error-msg" id="phoneError">Введите корректный номер телефона</span>
-              </div>
-
-              <div class="field">
-                <label for="userTariff">Интересующий формат</label>
-                <select id="userTariff">
-                  <option value="Запись на вебинар">Участие в вебинаре</option>
-                  <option value="БАЗА (4 недели — 110 400 ₽)">Программа «База» (4 недели — 110 400 ₽)</option>
-                  <option value="ЭКСПЕРТ (8 недель — 201 600 ₽)">Программа «Эксперт» (8 недель — 201 600 ₽)</option>
-                  <option value="ПРОФИ (12 недель — 337 600 ₽)">Программа «Профи» (12 недель — 337 600 ₽)</option>
-                </select>
-              </div>
-
-              <button type="submit" class="btn btn-primary btn-lg btn-full">Отправить заявку</button>
-              <span class="form-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных</span>
-            </form>
-
-            <div id="formSuccess" class="form-success" hidden>
-              <div class="success-check">✓</div>
-              <h3>Заявка отправлена</h3>
-              <p id="successText">Спасибо! Мы свяжемся с вами в ближайшее время.</p>
-              <button type="button" class="btn btn-outline-light btn-sm" id="resetFormBtn">Отправить еще раз</button>
             </div>
           </div>
         </div>
@@ -399,31 +518,38 @@
     </section>
   </main>
 
-  <!-- ================= 7. КОНТАКТЫ (ФУТЕР) ================= -->
-  <footer class="footer" id="contacts">
-    <div class="container">
-      <div class="footer-top">
-        <div class="footer-col">
-          <div class="logo">
-            <span class="logo-box">ЗГП</span>
-            <span class="logo-name">За гранью продаж</span>
+  <!-- ================= 7. КОНТАКТЫ (FULL-WIDTH FOOTER) ================= -->
+  <footer class="site-footer" id="contacts">
+    <div class="edge-wrap">
+      <div class="footer-grid">
+        <div class="f-col">
+          <div class="brand">
+            <span class="brand-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                <path d="M3 3v18h18" />
+                <path d="m19 9-5 5-4-4-3 3" />
+              </svg>
+            </span>
+            <span class="brand-text">
+              <strong>ЗА ГРАНЬЮ ПРОДАЖ</strong>
+              <small>Системы управления продажами</small>
+            </span>
           </div>
-          <p class="footer-desc">Построение и аудит систем управления продажами под ключ.</p>
         </div>
 
-        <div class="footer-col">
-          <span class="footer-label">Телефон</span>
-          <a href="tel:+79000000000" class="footer-val">+7 (900) 000-00-00</a>
+        <div class="f-col">
+          <span class="f-label">Телефон</span>
+          <a href="tel:+79000000000" class="f-val">+7 (900) 000-00-00</a>
         </div>
 
-        <div class="footer-col">
-          <span class="footer-label">Адрес</span>
-          <span class="footer-val">г. Москва, Пресненская наб., 12</span>
+        <div class="f-col">
+          <span class="f-label">Адрес</span>
+          <span class="f-val">г. Москва, Пресненская наб., 12</span>
         </div>
 
-        <div class="footer-col">
-          <span class="footer-label">Соцсети и мессенджеры</span>
-          <div class="socials">
+        <div class="f-col">
+          <span class="f-label">Соцсети</span>
+          <div class="f-socials">
             <a href="https://t.me/" target="_blank" rel="noopener">Telegram</a>
             <a href="https://vk.com/" target="_blank" rel="noopener">VK</a>
             <a href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a>
@@ -432,23 +558,23 @@
       </div>
 
       <div class="footer-bottom">
-        <span>© 2026 Компания «За гранью продаж». Консультант Андрей Сахаров.</span>
+        <span>© 2026 Компания «За гранью продаж». Консультант — Андрей Сахаров.</span>
       </div>
     </div>
   </footer>
 
-  <!-- ================= МОДАЛЬНОЕ ОКНО ДЕТАЛЬНОГО СОСТАВА ПРОГРАММ ================= -->
-  <div class="modal-backdrop" id="specModal" aria-hidden="true">
-    <div class="modal-window" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <div class="modal-header">
+  <!-- ================= МОДАЛЬНОЕ ОКНО СПЕЦИФИКАЦИИ И ДОКУМЕНТОВ ================= -->
+  <div class="modal-overlay" id="specModal" aria-hidden="true">
+    <div class="modal-sheet" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-top">
         <div class="modal-tabs">
-          <button type="button" class="modal-tab active" data-tier="baza">База (4 нед.)</button>
-          <button type="button" class="modal-tab" data-tier="expert">Эксперт (8 нед.)</button>
-          <button type="button" class="modal-tab" data-tier="profi">Профи (12 нед.)</button>
+          <button type="button" class="m-tab active" data-tier="baza">База (4 нед.)</button>
+          <button type="button" class="m-tab" data-tier="expert">Эксперт (8 нед.)</button>
+          <button type="button" class="m-tab" data-tier="profi">Профи (12 нед.)</button>
         </div>
         <button type="button" class="modal-close" id="closeModalBtn" aria-label="Закрыть">✕</button>
       </div>
-      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-content" id="modalBody"></div>
     </div>
   </div>
 
